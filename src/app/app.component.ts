@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {products} from './products';
+import {SelectableSettings} from '@progress/kendo-angular-grid';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'kendo-angular-grid';
+  public gridData: any[] = products;
+  public selectedIds = [2, 10];
+
+  constructor() {}
+
+  get settings(): SelectableSettings {
+    return {checkboxOnly: true, mode: 'multiple'}
+  }
 }
